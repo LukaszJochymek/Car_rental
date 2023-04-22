@@ -2,6 +2,7 @@ package car.rental.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -22,7 +23,10 @@ public class Reservation {
     @OneToOne
     private Car car;
     private String carPickupLocation;
-    private LocalDateTime rentalDate;
+    private LocalDateTime dateOfBooking;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime dateStartRental;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime dateOfReturn;
     private BigDecimal cost;
     private String status;
@@ -30,6 +34,7 @@ public class Reservation {
 
     @PrePersist
     public void prePersist() {
-        rentalDate = LocalDateTime.now();
+        dateOfBooking = LocalDateTime.now();
+        status = "reservation made";
     }
 }

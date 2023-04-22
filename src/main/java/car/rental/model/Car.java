@@ -2,6 +2,7 @@ package car.rental.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -29,6 +30,7 @@ public class Car {
     private BigDecimal priceOfDay;
     private String engineCapacity;
     private Boolean availability;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate overviewDate;
     private String description;
 

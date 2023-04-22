@@ -4,14 +4,10 @@ import car.rental.model.CarMark;
 import car.rental.repository.CarMarkRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.validation.Valid;
-import java.awt.print.Book;
 
 
 @Controller
@@ -32,7 +28,7 @@ public class CarMarkController {
     public String showAddForm(Model model) {
         CarMark carMark = new CarMark();
         model.addAttribute("carMark", carMark);
-        return "car/carMarkAdded";
+        return "car/carMarkAdd";
     }
 
     @PostMapping("/add")

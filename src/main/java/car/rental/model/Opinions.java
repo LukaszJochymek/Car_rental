@@ -1,5 +1,6 @@
 package car.rental.model;
 
+import car.rental.repository.UserRepository;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +17,13 @@ public class Opinions {
     private User user;
     @OneToOne
     private Car car;
-    private int rating;
-    private String opinions;
+    @OneToOne
+    private Rating rating;
+    private String description;
 
+    @PrePersist
+    public void prePersist() {
+        user = getUser();
+    }
 }
+

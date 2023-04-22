@@ -31,7 +31,7 @@ public class CarModelController {
         CarModel carModel = new CarModel();
         model.addAttribute("carModel", carModel);
         model.addAttribute("carMarks", carMarkRepository.findAll());
-        return "car/carModelAdded";
+        return "car/carModelAdd";
     }
 
     @PostMapping("/add")
