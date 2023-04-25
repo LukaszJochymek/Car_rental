@@ -40,8 +40,8 @@
 
 
       <td><a href='<c:url value="/reservation/delete/${res.id}"/>'> DEL </a></td>
-      <td><a href='<c:url value="/reservation/changeStatus/${res.id}"/>'> Car released </a></td>
-      <td><a href='<c:url value="/reservation/changeStatus/${res.id}"/>'> Car returned </a></td>
+      <td><a href='<c:url value="/reservation/changeStatus${res.id}"/>'> Car released </a></td>
+      <td><a href='<c:url value="/reservation/changeStatus//returned/${res.id}"/>'> Car returned </a></td>
     </tr>
   </c:forEach>
 

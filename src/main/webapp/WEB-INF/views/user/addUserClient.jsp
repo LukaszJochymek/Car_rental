@@ -37,80 +37,80 @@
                 <table class="table borderless">
                     <tbody>
                     <tr class="d-flex">
-                        <th scope="row" class="col-2">Imie/
-                        <th>
+                        <th scope="row" class="col-2">Imie</th>
+
                         <td class="col-7">
-                            FIRST NAME: <form:input path="firstName"/>
+                            <form:input path="firstName"/>
                             <form:errors path="firstName"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Nazwisko</th>
                         <td class="col-7">
-                            LAST NAME: <form:input path="lastName"/>
+                            <form:input path="lastName"/>
                             <form:errors path="lastName"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Haslo</th>
                         <td class="col-7">
-                            PASSWORD: <form:input path="password"/>
+                            <form:input path="password"/>
                             <form:errors path="password"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">E-mail</th>
                         <td class="col-7">
-                            MAIL: <form:input path="mail"/>
+                            <form:input path="mail"/>
                             <form:errors path="mail"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Miasto</th>
                         <td class="col-7">
-                            CITY: <form:input path="city"/>
+                            <form:input path="city"/>
                             <form:errors path="city"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Kod Pocztowy</th>
                         <td class="col-7">
-                            ZIP CODE: <form:input path="zipCode"/>
+                            <form:input path="zipCode"/>
                             <form:errors path="zipCode"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Ulica</th>
                         <td class="col-7">
-                            STREET: <form:input path="street"/>
+                            <form:input path="street"/>
                             <form:errors path="street"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Numer Domu</th>
                         <td class="col-7">
-                            HOUSE NUMBER: <form:input path="houseNumber"/>
+                            <form:input path="houseNumber"/>
                             <form:errors path="houseNumber"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Numer telefonu</th>
                         <td class="col-7">
-                            MOBILE: <form:input path="mobileNumber"/>
+                            <form:input path="mobileNumber"/>
                             <form:errors path="mobileNumber"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Pesel</th>
                         <td class="col-7">
-                            PESEL: <form:input path="pesel"/>
+                            <form:input path="pesel"/>
                             <form:errors path="pesel"/><br>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Prawo Jazdy</th>
                         <td class="col-7">
-                            DRIVING LICENSE: <form:input path="drivingLicense"/>
+                            <form:input path="drivingLicense"/>
                             <form:errors path="drivingLicense"/><br>
                         </td>
                     </tr>

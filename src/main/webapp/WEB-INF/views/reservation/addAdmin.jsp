@@ -44,6 +44,10 @@
                 <tr class="d-flex">
                     <th scope="row" class="col-2">SAMOCHÓD</th>
                     <td class="col-7">
+                        //foreach
+                        <select>
+                             <option value="1" price="123">Q5</option>
+                        </select>
                             <form:select path="car" items="${cars}" itemLabel="carModel.name"  itemValue="id"/><br/>
                     </td>
                 </tr>

@@ -23,19 +23,7 @@
                 <div class="col d-flex justify-content-end mb-2"><a href="/car/all" class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
             <form:form method="post" modelAttribute="car">
-
-
-
                 <table class="table borderless">
                     <tbody>
                     <tr class="d-flex">
@@ -91,7 +79,15 @@
                             <form:textarea  rows="10"  cols="80" path="description"/><br>
                         </td>
                     </tr>
-                    </tr> <tr class="d-flex">
+
+                    </tr>
+                    <tr class="d-flex">
+                        <th scope="row" class="col-2">Zdjecie</th>
+                        <td class="col-7">
+                            <form:select path="imageCar" items="${imageCar}" itemLabel="id" itemValue="id"/><br/>
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
                         <div class="col d-flex justify-content-end mb-2">
 
                             <td class="col-7">
@@ -103,6 +99,16 @@
                     </tbody>
                 </table>
             </form:form>
+
+
+            <form method="POST" enctype="multipart/form-data" action="/upload">
+                <table>
+                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                    <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                </table>
+            </form>
+
+
 
         </div>
     </div>

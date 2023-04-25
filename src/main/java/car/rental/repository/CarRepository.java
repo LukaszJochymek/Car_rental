@@ -14,7 +14,8 @@ public interface CarRepository extends JpaRepository<Car, Long> {
     @Query("SELECT c FROM Car c ORDER BY  c.priceOfDay DESC")
     List<Car> findAllGroupByPriceOfDayDesc();
 
-
+    @Query("SELECT c FROM Car c WHERE c.availability =  true")
+    List<Car> findAllWhereAvailabilityIsTrue();
 
 
 }

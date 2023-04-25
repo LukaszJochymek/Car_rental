@@ -1,20 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: lukasz
-  Date: 19.04.2023
-  Time: 12:22
+  Date: 25.04.2023
+  Time: 23:14
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: lukasz
-  Date: 22.04.2023
-  Time: 10:01
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:include page="../headerAdmin.jsp"/>
+<jsp:include page="../headerClient.jsp"/>
 <!-- End of Topbar -->
 
 <!-- Begin Page Content -->
@@ -58,8 +51,7 @@
 
 
                             <td><a href='<c:url value="/reservation/delete/${res.id}"/>'> DEL </a></td>
-                            <td><a href='<c:url value="/reservation/changeStatus/released/${res.id}"/>'> Car released </a></td>
-                            <td><a href='<c:url value="/reservation/changeStatus/returned/${res.id}"/>'> Car returned </a></td>
+                            
                         </tr>
                     </c:forEach>
 

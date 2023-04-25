@@ -1,11 +1,11 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: lukasz
-  Date: 19.04.2023
-  Time: 12:22
+  Date: 25.04.2023
+  Time: 22:43
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,8 +14,7 @@
 <body>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 
 <jsp:include page="../headerClient.jsp"/>
@@ -40,6 +39,11 @@
                     document.getElementById("costs").value = diffDays;
                 }
             </script>
+<%--            <table class="table borderless">--%>
+<%--                <tbody>--%>
+
+<%--                </tbody>--%>
+<%--            </table>--%>
             <form:form method="post" modelAttribute="reservation">
 
 
@@ -47,9 +51,9 @@
                 <table class="table borderless">
                     <tbody>
                     <tr class="d-flex">
-                        <th scope="row" class="col-2">SAMOCHÓD</th>
+                        <th scope="row" class="col-2">WYBRANY SAMOCHÓD</th>
                         <td class="col-7">
-                            <form:select path="car" items="${cars}" itemLabel="carModel.name"  itemValue="id"/><br/>
+                                ${car.carModel.carMark.name} ${car.carModel.name}
                         </td>
                     </tr>
                     <tr class="d-flex">

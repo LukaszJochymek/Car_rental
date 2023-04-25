@@ -34,6 +34,9 @@ public class Car {
     private LocalDate overviewDate;
     private String description;
 
+    @OneToOne
+    private ImageCar imageCar;
+
     @PrePersist
     public void prePersist() {
         availability = true;

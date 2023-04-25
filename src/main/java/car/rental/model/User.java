@@ -33,7 +33,7 @@ public class User {
     private String mobileNumber;
     @Size(min = 7)
     private String drivingLicense;
-    @PESEL
+//    @PESEL
     private String pesel;
     @Size(min=3)
     private String City;

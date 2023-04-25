@@ -37,7 +37,7 @@
                                     <tr>
                                         <td><c:out value="${car.carModel.name}"/></td>
                                         <td><c:out value="${car.carModel.carMark.name}"/></td>
-                                        <td><c:out value="${car.description}"/></td>
+                                                               <td><c:out value="${car.description}"/></td>
                                         <td><c:out value="${car.engineCapacity}"/></td>
                                         <td><c:out value="${car.overviewDate}"/></td>
                                         <td><c:out value="${car.priceOfDay}"/></td>
@@ -46,7 +46,7 @@
                                         <td><c:out value="${car.carType.name}"/></td>
                                         <td><c:out value="${car.fuelType.name}"/></td>
                                         <td><c:out value="${car.availability}"/></td>
-
+                                        <td><img src="/image/${car.imageCar.data}" alt="foto" /></td>
                                         <td><a href='<c:url value="/car/delete/${car.id}"/>'> DELETE </a></td>
                                         <td><a href='<c:url value="/car/edit/${car.id}"/>'> EDYTUJ </a></td>
                                     </tr>
