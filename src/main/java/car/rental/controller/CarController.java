@@ -38,28 +38,7 @@ public class CarController {
         this.imageCarRepository = imageCarRepository;
     }
 
-    //    @PostMapping("/upload")
-//    public String uploadImage(@RequestParam("file") MultipartFile file) {
-//        try {
-//            ImageCar image = new ImageCar();
-//            image.setName(file.getOriginalFilename());
-//            image.setType(file.getContentType());
-//            image.setData(file.getBytes());
-//
-//            imageCarRepository.save(image);
-//
-//            return "Image uploaded successfully";
-//        } catch (IOException e) {
-//            return "Failed to upload image";
-//        }
-//    }
-//    @GetMapping("/image/{id}")
-//    public void showImage(@PathVariable("id") Long id, HttpServletResponse response) throws IOException {
-//        ImageCar image = imageCarRepository.findById(id).get();
-//        response.setContentType("image/jpg");
-//        response.getOutputStream().write(image.getData());
-//        response.getOutputStream().close();
-//    }
+
 
     @GetMapping("/all")
     public String showCar(Model model) {

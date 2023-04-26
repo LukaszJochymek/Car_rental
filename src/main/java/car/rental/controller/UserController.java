@@ -1,6 +1,7 @@
 package car.rental.controller;
 
 import car.rental.CurrentUser;
+import car.rental.model.Car;
 import car.rental.model.User;
 import car.rental.repository.UserRepository;
 import car.rental.repository.UserService;
@@ -34,6 +35,12 @@ public class UserController {
         model.addAttribute("users", userRepository.findAll());
         return "user/users";
     }
+    @GetMapping("/details/{id}")
+    public String showUserDetailsAdmin(@PathVariable long id, Model model) {
+        User user = userRepository.findById(id).get();
+        model.addAttribute("user", user);
+        return "user/userDetails";
+    }
 
     @GetMapping("/admin")
     @ResponseBody
@@ -41,18 +48,7 @@ public class UserController {
         User entityUser = customUser.getUser();
         return "Hello " + entityUser.getUsername();
     }
-    @GetMapping("/create-user")
-    @ResponseBody
-    public String createUser() {
-        User user = new User();
-        user.setUsername("user");
-        user.setFirstName("adam");
-        user.setMail("adam@int.pl");
-        user.setLastName("Mickiewicz");
-        user.setPassword("lukasz1231");
-        userService.saveUser(user);
-        return "admin";
-    }
+
 
 
     @GetMapping("/registration")

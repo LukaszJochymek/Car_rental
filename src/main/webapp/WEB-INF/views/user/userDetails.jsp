@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lukasz
-  Date: 23.04.2023
-  Time: 00:09
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../headerAdmin.jsp"/>
@@ -14,45 +7,54 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Klienci</h1>
+    <h1 class="h3 mb-2 text-gray-800">Klient ${user.firstName} ${user.lastName}</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Lista Klientow</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Szczególy</h6>
+            <div class="col d-flex justify-content-end mb-2"><a href="/user/all"
+                                                                class="btn btn-color rounded-0 pt-0 pb-0 pr-4 pl-4">Powrót</a>
+            </div>
         </div>
+
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
-                        <th>FIRST NAME</th>
-                        <th>LAST NAME</th>
-                        <th>CITY</th>
+                        <th>Imie</th>
+                        <th>Nazwisko</th>
+                        <th>Miasto</th>
+                        <th>Ulica</th>
+                        <th>Numer Domu</th>
+                        <th>Kod Pocztkowy</th>
+                        <th>Pesel</th>
+                        <th>Telefon</th>
+                        <th>E-mail</th>
+                        <th>Prawo Jazdy</th>
+
                     </tr>
                     </thead>
 
                     <tbody>
-                    <c:forEach items="${users}" var="user">
                         <tr>
-                            <td><c:out value="${user.firstName}"/></td>
-                            <td><c:out value="${user.lastName}"/></td>
-                            <td><c:out value="${user.city}"/></td>
+                           <td><c:out value="${user.firstName}"/></td>
+                           <td><c:out value="${user.lastName}"/></td>
+                           <td><c:out value="${user.city}"/></td>
+                           <td><c:out value="${user.street}"/></td>
+                           <td><c:out value="${user.houseNumber}"/></td>
+                           <td><c:out value="${user.zipCode}"/></td>
+                           <td><c:out value="${user.pesel}"/></td>
+                           <td><c:out value="${user.mobileNumber}"/></td>
+                           <td><c:out value="${user.mail}"/></td>
+                           <td><c:out value="${user.drivingLicense}"/></td>
 
-
-                            <td><a href='<c:url value="/user/details/${user.id}"/>'> DETAILS </a></td>
                         </tr>
-                    </c:forEach>
 
                     </tbody>
                 </table>
-                <div class="menu-item border-dashed">
-                    <a href="/user/registration">
-                        <i class="far fa-plus-square icon-plus-square"></i>
-                        <span class="title">Zarejstruj nowego klienta</span>
-                    </a>
 
-                </div>
             </div>
         </div>
     </div>
@@ -106,6 +108,3 @@
 </body>
 
 </html>
-
-
-

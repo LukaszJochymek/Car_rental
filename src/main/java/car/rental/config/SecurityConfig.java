@@ -21,8 +21,8 @@ public class SecurityConfig {
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/car/client/all", "/create-user").permitAll()
-                .antMatchers("/car/all").hasRole("USER")
+                .antMatchers("/car/client/all", "/car/all").permitAll()
+                .antMatchers("/").hasRole("USER")
                 .and().formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/car/client/all");;
