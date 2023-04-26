@@ -1,15 +1,17 @@
 package car.rental.controller;
 
+import car.rental.CurrentUser;
 import car.rental.model.User;
 import car.rental.repository.UserRepository;
+import car.rental.repository.UserService;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -19,16 +21,39 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
     UserRepository userRepository;
+    private final UserService userService;
 
-    public UserController(UserRepository userRepository) {
+    public UserController(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
     }
+
 
     @GetMapping("/all")
     public String showUser(Model model) {
         model.addAttribute("users", userRepository.findAll());
         return "user/users";
     }
+
+    @GetMapping("/admin")
+    @ResponseBody
+    public String admin(@AuthenticationPrincipal CurrentUser customUser) {
+        User entityUser = customUser.getUser();
+        return "Hello " + entityUser.getUsername();
+    }
+    @GetMapping("/create-user")
+    @ResponseBody
+    public String createUser() {
+        User user = new User();
+        user.setUsername("user");
+        user.setFirstName("adam");
+        user.setMail("adam@int.pl");
+        user.setLastName("Mickiewicz");
+        user.setPassword("lukasz1231");
+        userService.saveUser(user);
+        return "admin";
+    }
+
 
     @GetMapping("/registration")
     public String showAddFormRegistration(Model model) {
@@ -45,6 +70,22 @@ public class UserController {
         }
         userRepository.save(user);
         return "redirect:/user/all";
+    }
+    @GetMapping("/panel/registration")
+    public String showAddFormRegistrationPanel(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "user/registration";
+    }
+
+    @PostMapping("/panel/registration")
+    public String saveRegistrationPanel(@Valid User user,BindingResult result, Model model){
+        if(result.hasErrors()) {
+            model.addAttribute("users", userRepository.findAll());
+            return "user/registration";
+        }
+        userRepository.save(user);
+        return "redirect:/login";
     }
     @GetMapping("/edit/{userId}")
     public String showAddFormEditUser(@PathVariable Long userId,Model model) {

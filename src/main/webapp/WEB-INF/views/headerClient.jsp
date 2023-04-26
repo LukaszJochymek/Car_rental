@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>--%>
 <head>
 
     <meta charset="utf-8">
@@ -159,6 +160,12 @@
                             <img class="img-profile rounded-circle"
                                  src="/img/undraw_profile.svg">
                         </a>
+
+<%--                    <sec:authorize access="isAuthenticated()">--%>
+<%--                    <form action="<c:url value="/logout"/>" method="post">--%>
+<%--                        <input class="fa fa-id-badge" type="submit" value="Wyloguj">--%>
+<%--                        <input  name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+<%--                    </form>--%>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
