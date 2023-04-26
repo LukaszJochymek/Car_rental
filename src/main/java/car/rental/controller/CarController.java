@@ -75,15 +75,15 @@ public class CarController {
         model.addAttribute("cars", carRepository.findAllWhereAvailabilityIsTrue());
         return "car/carClient";
     }
-    @GetMapping("/all/price")
-    public String showCarGroupPrice(Model model) {
-        model.addAttribute("carsPrice", carRepository.findAllGroupByPriceOfDay());
-        return "car/carsPrice";
+    @GetMapping("/client/all/price/asc")
+    public String showCarGroupPriceAsc(Model model) {
+        model.addAttribute("cars", carRepository.findAllGroupByPriceOfDay());
+        return "car/carClient";
     }
-    @GetMapping("/all/price/desc")
+    @GetMapping("/client/all/price/desc")
     public String showCarGroupPriceDesc(Model model) {
-        model.addAttribute("carsPrice", carRepository.findAllGroupByPriceOfDayDesc());
-        return "car/carPriceDesc";
+        model.addAttribute("cars", carRepository.findAllGroupByPriceOfDayDesc());
+        return "car/carClient";
     }
     @GetMapping("/add")
     public String showAddForm(Model model) {
@@ -111,6 +111,10 @@ public class CarController {
     public String showEditForm(Model model,@PathVariable Long id)
     {   Car car = carRepository.findById(id).get();
         model.addAttribute("car", car);
+        model.addAttribute("carModel", carModelRepository.findAll());
+        model.addAttribute("carClass", carClassRepository.findAll());
+        model.addAttribute("carType", carTypeRepository.findAll());
+        model.addAttribute("fuelType", fuelTypeRepository.findAll());
         return "car/edit";
     }
     @PostMapping("/edit")

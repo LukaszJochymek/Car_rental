@@ -27,56 +27,72 @@
                 function calcCost() {
                     var dateStart = new Date(document.getElementById("DateStartRental").value);
                     var dateEnd = new Date(document.getElementById("DateOfReturn").value);
-
+                    var carPriceSelect = document.querySelector("#carPrice");
+                    var selectedCarOption = carPriceSelect.options[carPriceSelect.selectedIndex];
+                    var carPrice = selectedCarOption.getAttribute("price");
 
                     var diffTime = Math.abs(dateEnd - dateStart);
                     var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-                    document.getElementById("costs").value = diffDays;
+                    document.getElementById("cost").value = diffDays * carPrice;
                 }
             </script>
-            <form:form method="post" modelAttribute="reservation">
-
-
+<%--            <form:form method="post" modelAttribute="reservation">--%>
+            <form method="post" modelAttribute="reservation">
 
             <table class="table borderless">
                 <tbody>
                 <tr class="d-flex">
                     <th scope="row" class="col-2">SAMOCHÓD</th>
                     <td class="col-7">
-                        //foreach
-                        <select>
-                             <option value="1" price="123">Q5</option>
+
+                        <select id="carPrice" name="car">
+                            <c:forEach items="${cars}" var="car">
+                             <option  value=${car.id} price=${car.priceOfDay}>${car.carModel.carMark.name}${car.carModel.name} </option>
+                            </c:forEach>
                         </select>
-                            <form:select path="car" items="${cars}" itemLabel="carModel.name"  itemValue="id"/><br/>
+
+<%--                            <form:select path="car" items="${cars}" itemLabel="carModel.name"  itemValue="id"/><br/>--%>
                     </td>
                 </tr>
                 <tr class="d-flex">
                     <th scope="row" class="col-2">DATA ROZPOCZĘCIA WYPOŻYCZENIA</th>
-                    <td class="col-7"><form:input id="DateStartRental" type="datetime-local" path="DateStartRental" onchange="calcCost()"/><br>
+                    <td class="col-7">
+                        <input id="DateStartRental" type="datetime-local" name="DateStartRental" onchange="calcCost()"/>
+
+<%--                        <form:input id="DateStartRental" type="datetime-local" path="DateStartRental" onchange="calcCost()"/><br>--%>
                     </td>
                 </tr>
                 <tr class="d-flex">
                     <th scope="row" class="col-2">DATA KOŃCA WYPOŻYCZENIA</th>
                     <td class="col-7">
-                        <form:input id="DateOfReturn" type="datetime-local" path="DateOfReturn" onchange="calcCost()"/><br>
+                        <input id="DateOfReturn" type="datetime-local" name="DateOfReturn" onchange="calcCost()">
+<%--                        <form:input id="DateOfReturn" type="datetime-local" path="DateOfReturn" onchange="calcCost()"/><br>--%>
                     </td>
                 </tr>
                 <tr class="d-flex">
                     <th scope="row" class="col-2">MIEJSCE ODBIORU SAMOCHODU</th>
                     <td class="col-7">
-                        <form:textarea  rows="2"  cols="20" path="carPickupLocation"/><br>
+                        <textarea rows="2"  cols="20" name="carPickupLocation"></textarea>
+<%--                        <form:textarea  rows="2"  cols="20" path="carPickupLocation"/><br>--%>
                     </td>
                 </tr> <tr class="d-flex">
                     <th scope="row" class="col-2">KLIENT</th>
                     <td class="col-7">
-                        <form:select path="userClient" items="${userClient}" itemLabel="lastName" itemValue="id"/><br/>
+                        <select id="userClient" name="userClient">
+                            <c:forEach items="${users}" var="user">
+                                <option  name="userClient" value=${user.id} >${user.firstName}${user.lastName} </option>
+                            </c:forEach>
+                        </select>
+
+<%--                        <form:select path="userClient" items="${userClient}" itemLabel="lastName" itemValue="id"/><br/>--%>
                     </td>
                 </tr>
                 </tr> <tr class="d-flex">
                     <th scope="row" class="col-2">KOSZT CAŁKOWITY</th>
                     <td class="col-7">
-                        <form:input id="costs" path="cost"/><br>
+<%--                        <form:input id="costs" path="costs"/><br>--%>
+                        <input type="number" id="cost" name="cost"/>
                     </td>
                 </tr>
                 </tr> <tr class="d-flex">
@@ -90,7 +106,8 @@
 
                 </tbody>
             </table>
-            </form:form>
+            </form>
+<%--            </form:form>--%>
 
         </div>
     </div>

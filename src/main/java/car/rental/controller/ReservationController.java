@@ -26,14 +26,26 @@ public class ReservationController {
 
     @GetMapping("/all")
     public String showReservation(Model model) {
-        model.addAttribute("reservations", reservationRepository.findAll());
+        model.addAttribute("reservations", reservationRepository.findAllStatusOtherFinished());
         return "reservation/reservation";
+    }
+
+    @GetMapping("/history/all")
+    public String showReservationHistory(Model model) {
+        model.addAttribute("reservations", reservationRepository.findAllStatusIsFinished());
+        return "reservation/adminHistory";
     }
     @GetMapping("/client/all/{userId}")
     public String showReservationClient(@PathVariable Long userId, Model model) {
         model.addAttribute("reservations", reservationRepository.findAllWhereUserId(userId));
         return "reservation/reservationClient";
     }
+    @GetMapping("/client/history/{userId}")
+    public String showReservationClientHistory(@PathVariable Long userId, Model model) {
+        model.addAttribute("reservations", reservationRepository.findAllWhereUserIdStatusFinish(userId));
+        return "reservation/clientHistory";
+    }
+
 
     @GetMapping("/addUserClient/{userId}")
     public String showAddForm(Model model) {
@@ -63,7 +75,7 @@ public class ReservationController {
     public String save(@PathVariable Long userId,@PathVariable Long carId, Reservation reservation) {
         User userClient = userRepository.findById(userId).get();
         reservation.setUserClient(userClient);
-        Car car = carRepository.findById(userId).get();
+        Car car = carRepository.findById(carId).get();
         reservation.setCar(car);
         reservationRepository.save(reservation);
         return "redirect:/car/client/all";
@@ -74,6 +86,7 @@ public class ReservationController {
     public String showAddFormAdmin(Model model) {
         Reservation reservation = new Reservation();
         model.addAttribute("reservation", reservation);
+        model.addAttribute("users", userRepository.findAll());
         model.addAttribute("cars", carRepository.findAll());
         return "reservation/addAdmin";
     }

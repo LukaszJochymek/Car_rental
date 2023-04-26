@@ -31,12 +31,14 @@
                 function calcCost() {
                     var dateStart = new Date(document.getElementById("DateStartRental").value);
                     var dateEnd = new Date(document.getElementById("DateOfReturn").value);
+                    const carPriceDiv = document.querySelector("#carPrice");
+                    const carPrice = carPriceDiv.getAttribute("price");
 
 
                     var diffTime = Math.abs(dateEnd - dateStart);
                     var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-                    document.getElementById("costs").value = diffDays;
+                    document.getElementById("cost").value = diffDays * carPrice;
                 }
             </script>
 <%--            <table class="table borderless">--%>
@@ -44,8 +46,8 @@
 
 <%--                </tbody>--%>
 <%--            </table>--%>
-            <form:form method="post" modelAttribute="reservation">
-
+<%--            <form:form method="post" modelAttribute="reservation">--%>
+            <form method="post" modelAttribute="reservation">
 
 
                 <table class="table borderless">
@@ -55,28 +57,38 @@
                         <td class="col-7">
                                 ${car.carModel.carMark.name} ${car.carModel.name}
                         </td>
+                    <tr class="d-flex">
+                        <th scope="row" class="col-2">Cena za dobe</th>
+                        <td class="col-7" id="carPrice" price=${car.priceOfDay}>
+                            ${car.priceOfDay}
+                        </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">DATA ROZPOCZĘCIA WYPOŻYCZENIA</th>
-                        <td class="col-7"><form:input id="DateStartRental" type="datetime-local" path="DateStartRental" onchange="calcCost()"/><br>
+                        <td class="col-7">
+                        <input id="DateStartRental" type="datetime-local" name="DateStartRental" onchange="calcCost()"/>
+<%--                        <form:input id="DateStartRental" type="datetime-local" path="DateStartRental" onchange="calcCost()"/><br>--%>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">DATA KOŃCA WYPOŻYCZENIA</th>
                         <td class="col-7">
-                            <form:input id="DateOfReturn" type="datetime-local" path="DateOfReturn" onchange="calcCost()"/><br>
+                            <input id="DateOfReturn" type="datetime-local" name="DateOfReturn" onchange="calcCost()">
+<%--                            <form:input id="DateOfReturn" type="datetime-local" path="DateOfReturn" onchange="calcCost()"/><br>--%>
                         </td>
                     </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">MIEJSCE ODBIORU SAMOCHODU</th>
                         <td class="col-7">
-                            <form:textarea  rows="2"  cols="20" path="carPickupLocation"/><br>
+                            <textarea rows="2"  cols="20" name="carPickupLocation"></textarea>
+<%--                            <form:textarea  rows="2"  cols="20" path="carPickupLocation"/><br>--%>
                         </td>
                     </tr>
                     </tr> <tr class="d-flex">
                         <th scope="row" class="col-2">KOSZT CAŁKOWITY</th>
                         <td class="col-7">
-                            <form:input id="costs" path="cost"/><br>
+                            <input type="number" id="cost" name="cost"/>
+<%--                            <form:input id="costs" path="cost"/><br>--%>
                         </td>
                     </tr>
                     </tr> <tr class="d-flex">
@@ -90,7 +102,8 @@
 
                     </tbody>
                 </table>
-            </form:form>
+            </form>
+<%--            </form:form>--%>
 
         </div>
     </div>

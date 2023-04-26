@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: lukasz
-  Date: 25.04.2023
-  Time: 23:14
+  Date: 26.04.2023
+  Time: 10:12
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -14,12 +14,12 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Panel Administracyjny</h1>
+    <h1 class="h3 mb-2 text-gray-800">Historia Rezerwacji</h1>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> Rezerwacje</h6>
+            <h6 class="m-0 font-weight-bold text-primary"></h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -58,13 +58,7 @@
                     </tbody>
                 </table>
 
-                <div class="menu-item border-dashed">
-                    <a href="/reservation/addUserAdmin/1">
-                        <i class="far fa-plus-square icon-plus-square"></i>
-                        <span class="title">DODAJ REZERWACJE</span>
-                    </a>
 
-                </div>
             </div>
         </div>
     </div>
@@ -136,4 +130,3 @@
 </body>
 
 </html>
-

@@ -70,6 +70,11 @@
                     <i class="fas fa-fw fa-plus-circle"></i>
                     <span>Moje Rezerwacje</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reservation/client/history/1">
+                    <i class="fas fa-fw fa-plus-circle"></i>
+                    <span>Historia Rezerwacji</span></a>
+            </li>
 
 
             <!-- Divider -->
@@ -93,26 +98,12 @@
 
         </li>
 
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="/user/registration">
-                <i class="fas fa-fw fa-plus"></i>
-                <span></span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/opinions/all">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span></span></a>
-        </li>
 
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -133,19 +124,19 @@
                     </button>
                 </form>
 
-                <!-- Topbar Search -->
-                <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                               aria-label="Search" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">
-                                <i class="fas fa-search fa-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
+<%--                <!-- Topbar Search -->--%>
+<%--                <form--%>
+<%--                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">--%>
+<%--                    <div class="input-group">--%>
+<%--                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."--%>
+<%--                               aria-label="Search" aria-describedby="basic-addon2">--%>
+<%--                        <div class="input-group-append">--%>
+<%--                            <button class="btn btn-primary" type="button">--%>
+<%--                                <i class="fas fa-search fa-sm"></i>--%>
+<%--                            </button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </form>--%>
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">

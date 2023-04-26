@@ -37,7 +37,7 @@
                                     <tr>
                                         <td><c:out value="${car.carModel.name}"/></td>
                                         <td><c:out value="${car.carModel.carMark.name}"/></td>
-                                                               <td><c:out value="${car.description}"/></td>
+                                        <td><c:out value="${car.description}"/></td>
                                         <td><c:out value="${car.engineCapacity}"/></td>
                                         <td><c:out value="${car.overviewDate}"/></td>
                                         <td><c:out value="${car.priceOfDay}"/></td>

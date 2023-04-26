@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lukasz
-  Date: 24.04.2023
-  Time: 18:38
-  To change this template use File | Settings | File Templates.
---%>
+
 <%--
   Created by IntelliJ IDEA.
   User: lukasz
@@ -29,6 +23,8 @@
       <h6 class="m-0 font-weight-bold text-primary">Lista Samochodów</h6>
     </div>
     <div class="card-body">
+      FILTRUJ :<a href="/car/client/all/price/asc" class="btn btn-info rounded-0 text-light m-1">Cen malejaco</a>
+      <a href="/car/client/all/price/desc" class="btn btn-info rounded-0 text-light m-1">Cen rosnaco</a>
       <div class="table-responsive">
         <table class="table">
           <thead>
@@ -46,6 +42,7 @@
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
+                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
 
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
@@ -78,6 +75,7 @@
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
+                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
 
                 <td class="col-7"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
@@ -86,7 +84,7 @@
                   <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
                 <td class="col-2 center">
-                <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
               </td>
 
               </tr>
@@ -111,13 +109,14 @@
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
+                <td class="col-2"> CENA : <c:out value="${car.priceOfDay}"/></td>
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
                 <td class="col-2 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
-                  <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
               </tr>
             </c:if>
@@ -140,6 +139,7 @@
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
+                <td class="col-2"> CENA <c:out value="${car.priceOfDay}"/></td>
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
 
@@ -147,7 +147,7 @@
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
-                  <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
               </tr>
             </c:if>
@@ -170,14 +170,14 @@
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
-
+                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
                 <td class="col-2 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
-                  <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
               </tr>
             </c:if>
@@ -199,6 +199,7 @@
               <tr class="d-flex">
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
+                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
 
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
@@ -207,7 +208,7 @@
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
-                  <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
               </tr>
             </c:if>
@@ -221,6 +222,7 @@
             <th class="col-7"></th>
             <th class="col-1"></th>
             <th class="col-2"></th>
+            <th class="col-2"></th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
@@ -229,6 +231,7 @@
               <tr class="d-flex">
                 <td class="col-2">${car.carModel.carMark.name}</td>
                 <td class="col-2">${car.carModel.name}</td>
+                <td class="col-2">CENA <c:out value="${car.priceOfDay}"/></td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
@@ -236,7 +239,7 @@
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
-                  <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
               </tr>
             </c:if>
