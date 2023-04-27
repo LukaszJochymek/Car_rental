@@ -6,6 +6,7 @@ import car.rental.model.User;
 import car.rental.repository.CarRepository;
 import car.rental.repository.ReservationRepository;
 import car.rental.repository.UserRepository;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -35,11 +36,13 @@ public class ReservationController {
         model.addAttribute("reservations", reservationRepository.findAllStatusIsFinished());
         return "reservation/adminHistory";
     }
+
     @GetMapping("/client/all/{userId}")
     public String showReservationClient(@PathVariable Long userId, Model model) {
         model.addAttribute("reservations", reservationRepository.findAllWhereUserId(userId));
         return "reservation/reservationClient";
     }
+
     @GetMapping("/client/history/{userId}")
     public String showReservationClientHistory(@PathVariable Long userId, Model model) {
         model.addAttribute("reservations", reservationRepository.findAllWhereUserIdStatusFinish(userId));
@@ -63,8 +66,9 @@ public class ReservationController {
         return "redirect:/car/client/all";
 
     }
+
     @GetMapping("/addUserClientCar/{userId}/{carId}")
-    public String showAddFormClientCar(@PathVariable Long userId,@PathVariable Long carId ,Model model) {
+    public String showAddFormClientCar(@PathVariable Long userId, @PathVariable Long carId, Model model) {
         Reservation reservation = new Reservation();
         model.addAttribute("reservation", reservation);
         model.addAttribute("car", carRepository.findById(carId).get());
@@ -72,7 +76,7 @@ public class ReservationController {
     }
 
     @PostMapping("/addUserClientCar/{userId}/{carId}")
-    public String save(@PathVariable Long userId,@PathVariable Long carId, Reservation reservation) {
+    public String save(@PathVariable Long userId, @PathVariable Long carId, Reservation reservation) {
         User userClient = userRepository.findById(userId).get();
         reservation.setUserClient(userClient);
         Car car = carRepository.findById(carId).get();
@@ -110,18 +114,19 @@ public class ReservationController {
         reservation.setStatus("in progress");
         reservationRepository.save(reservation);
         Long idCar = reservation.getCar().getId();
-        Car car= carRepository.findById(idCar).get();
+        Car car = carRepository.findById(idCar).get();
         car.setAvailability(false);
         carRepository.save(car);
         return "redirect:/reservation/all";
     }
+
     @RequestMapping("/changeStatus/returned/{id}")
     public String changeStatusCarReturned(@PathVariable long id) {
         Reservation reservation = reservationRepository.findById(id).get();
         reservation.setStatus("finished");
         reservationRepository.save(reservation);
         Long idCar = reservation.getCar().getId();
-        Car car= carRepository.findById(idCar).get();
+        Car car = carRepository.findById(idCar).get();
         car.setAvailability(true);
         carRepository.save(car);
         return "redirect:/reservation/all";

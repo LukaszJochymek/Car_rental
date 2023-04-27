@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/opinions")
 public class OpinionsController {
@@ -33,6 +34,7 @@ public class OpinionsController {
         model.addAttribute("opinions", opinionsRepository.findAll());
         return "opinions/opinions";
     }
+
     @GetMapping("/add/{userId}")
     public String showAddForm(@PathVariable long userId, Model model) {
         Opinions opinion = new Opinions();
@@ -44,11 +46,12 @@ public class OpinionsController {
     }
 
     @PostMapping("/add/{userId}")
-    public String save(Opinions opinion,@PathVariable Long userId){
+    public String save(Opinions opinion, @PathVariable Long userId) {
         opinion.setUser(userRepository.findById(userId).get());
         opinionsRepository.save(opinion);
         return "redirect:/opinions/all";
     }
+
     @RequestMapping("/delete/{id}")
     public String deleteOpinions(@PathVariable long id) {
         opinionsRepository.deleteById(id);

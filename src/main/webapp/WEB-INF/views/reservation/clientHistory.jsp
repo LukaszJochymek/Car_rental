@@ -50,9 +50,10 @@
                             <td><c:out value="${res.userAdmin.firstName}"/></td>
 
 
-                            <td><a href='<c:url value="/reservation/delete/${res.id}"/>'> DEL </a></td>
+
 
                         </tr>
+                        <td><a href='<c:url value="/user/opinions/${res.userClient.id}/${res.car.id}"/>'> Dodaj Opinie </a></td>
                     </c:forEach>
 
                     </tbody>

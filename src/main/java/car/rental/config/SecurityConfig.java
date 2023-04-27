@@ -21,11 +21,12 @@ public class SecurityConfig {
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/car/client/all", "/car/all").permitAll()
-                .antMatchers("/").hasRole("USER")
+                .antMatchers("/car/all","/reservation/**").permitAll()
+                .antMatchers("/car/client/all").hasAuthority("USER")
                 .and().formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/car/client/all");;
+                .defaultSuccessUrl("/car/client/all");
+
         return http.build();
     }
 

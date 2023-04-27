@@ -35,7 +35,13 @@
             </div>
             <form:form method="post" modelAttribute="user"><br>
                 <table class="table borderless">
-                    <tbody>
+                    <tbody><tr class="d-flex">
+                        <th scope="row" class="col-2">Nazwa użytkownika</th>
+                        <td class="col-7">
+                            <form:input path="username"/>
+                            <form:errors path="username"/><br>
+                        </td>
+                    </tr>
                     <tr class="d-flex">
                         <th scope="row" class="col-2">Imie</th>
 

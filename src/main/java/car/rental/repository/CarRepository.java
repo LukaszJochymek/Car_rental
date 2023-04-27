@@ -11,6 +11,7 @@ import java.util.List;
 public interface CarRepository extends JpaRepository<Car, Long> {
     @Query("SELECT c FROM Car c WHERE c.availability = true ORDER BY  c.priceOfDay")
     List<Car> findAllGroupByPriceOfDay();
+
     @Query("SELECT c FROM Car c WHERE c.availability = true ORDER BY  c.priceOfDay DESC")
     List<Car> findAllGroupByPriceOfDayDesc();
 

@@ -24,6 +24,7 @@ public class CarMarkController {
         model.addAttribute("carMark", carMarkRepository.findAll());
         return "car/carMark";
     }
+
     @GetMapping("/add")
     public String showAddForm(Model model) {
         CarMark carMark = new CarMark();
@@ -32,10 +33,11 @@ public class CarMarkController {
     }
 
     @PostMapping("/add")
-    public String save(CarMark carMark){
+    public String save(CarMark carMark) {
         carMarkRepository.save(carMark);
         return "redirect:/car/mark/all";
     }
+
     @RequestMapping("/delete/{id}")
     public String deleteCarMark(@PathVariable long id) {
         carMarkRepository.deleteById(id);

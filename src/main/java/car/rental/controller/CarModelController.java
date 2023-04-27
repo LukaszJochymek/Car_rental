@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 @Controller
 @RequestMapping("/car/model")
 public class CarModelController {
@@ -26,6 +27,7 @@ public class CarModelController {
         model.addAttribute("carModels", carModelRepository.findAll());
         return "car/carModel";
     }
+
     @GetMapping("/add")
     public String showAddForm(Model model) {
         CarModel carModel = new CarModel();
@@ -35,10 +37,11 @@ public class CarModelController {
     }
 
     @PostMapping("/add")
-    public String save(CarModel carModel){
+    public String save(CarModel carModel) {
         carModelRepository.save(carModel);
         return "redirect:/car/model/all";
     }
+
     @RequestMapping("/delete/{id}")
     public String deleteCarModel(@PathVariable long id) {
         carModelRepository.deleteById(id);

@@ -35,20 +35,31 @@ public class UserController {
         model.addAttribute("users", userRepository.findAll());
         return "user/users";
     }
+
     @GetMapping("/details/{id}")
     public String showUserDetailsAdmin(@PathVariable long id, Model model) {
         User user = userRepository.findById(id).get();
         model.addAttribute("user", user);
         return "user/userDetails";
     }
-
+    @GetMapping("/create-user")
+    @ResponseBody
+    public String createUser() {
+        User user = new User();
+        user.setMail("Mail@interia.pl");
+        user.setLastName("login");
+        user.setFirstName("admin");
+        user.setUsername("login12345");
+        user.setPassword("login12345");
+        userService.saveUser(user);
+        return "admin";
+    }
     @GetMapping("/admin")
     @ResponseBody
     public String admin(@AuthenticationPrincipal CurrentUser customUser) {
         User entityUser = customUser.getUser();
         return "Hello " + entityUser.getUsername();
     }
-
 
 
     @GetMapping("/registration")
@@ -59,14 +70,15 @@ public class UserController {
     }
 
     @PostMapping("/registration")
-    public String saveRegistration(@Valid User user,BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String saveRegistration(@Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAll());
             return "user/addUserClient";
         }
         userRepository.save(user);
         return "redirect:/user/all";
     }
+
     @GetMapping("/panel/registration")
     public String showAddFormRegistrationPanel(Model model) {
         User user = new User();
@@ -75,32 +87,34 @@ public class UserController {
     }
 
     @PostMapping("/panel/registration")
-    public String saveRegistrationPanel(@Valid User user,BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String saveRegistrationPanel(@Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAll());
             return "user/registration";
         }
         userRepository.save(user);
         return "redirect:/login";
     }
+
     @GetMapping("/edit/{userId}")
-    public String showAddFormEditUser(@PathVariable Long userId,Model model) {
+    public String showAddFormEditUser(@PathVariable Long userId, Model model) {
         User user = userRepository.findById(userId).get();
         model.addAttribute("user", user);
         return "user/clientEditUser";
     }
 
     @PostMapping("/edit/{userId}")
-    public String saveEditUser(@PathVariable Long userId,@Valid User user,BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String saveEditUser(@PathVariable Long userId, @Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAll());
             return "/user/clientEditUser";
         }
 
-            userRepository.save(user);
+        userRepository.save(user);
 
         return "redirect:/user/all";
     }
+
     @GetMapping("/addAdmin")
     public String showAddFormAdmin(Model model) {
         User user = new User();
@@ -109,8 +123,8 @@ public class UserController {
     }
 
     @PostMapping("/addAdmin")
-    public String saveAdmin(@Valid User user,BindingResult result, Model model){
-        if(result.hasErrors()) {
+    public String saveAdmin(@Valid User user, BindingResult result, Model model) {
+        if (result.hasErrors()) {
             model.addAttribute("users", userRepository.findAll());
             return "user/addAdmin";
         }

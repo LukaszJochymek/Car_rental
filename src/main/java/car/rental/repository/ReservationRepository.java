@@ -14,11 +14,12 @@ public interface ReservationRepository extends JpaRepository<Reservation, Long> 
     @Query("SELECT r FROM Reservation r WHERE r.userClient.id = :userId AND r.status !='finished'")
     List<Reservation> findAllWhereUserId(@Param("userId") Long userId);
 
-    @Query("SELECT r FROM Reservation r WHERE r.status = 'finished' AND  r.userClient.id = :userId" )
+    @Query("SELECT r FROM Reservation r WHERE r.status = 'finished' AND  r.userClient.id = :userId")
     List<Reservation> findAllWhereUserIdStatusFinish(@Param("userId") Long userId);
 
     @Query("SELECT r FROM Reservation r WHERE r.status !='finished'")
     List<Reservation> findAllStatusOtherFinished();
+
     @Query("SELECT r FROM Reservation r WHERE r.status ='finished'")
     List<Reservation> findAllStatusIsFinished();
 }

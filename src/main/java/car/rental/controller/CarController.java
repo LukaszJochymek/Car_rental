@@ -39,7 +39,6 @@ public class CarController {
     }
 
 
-
     @GetMapping("/all")
     public String showCar(Model model) {
         model.addAttribute("cars", carRepository.findAll());

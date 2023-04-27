@@ -76,6 +76,11 @@
                     <i class="fas fa-fw fa-plus-circle"></i>
                     <span>Historia Rezerwacji</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/reservation/client/history/1">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Moje Opinie</span></a>
+            </li>
 
 
             <!-- Divider -->

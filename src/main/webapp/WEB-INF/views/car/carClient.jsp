@@ -28,25 +28,26 @@
       <div class="table-responsive">
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa A</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa A</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment A'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
 
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
-                <td class="col-2 center">
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
@@ -60,32 +61,32 @@
 
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa B</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa B</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment B'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
 
-                <td class="col-7"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
-
+                <td class="col-1 center">
+                  <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
+                </td>
                 <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
-                <td class="col-2 center">
-                <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
-              </td>
+
 
               </tr>
 
@@ -95,24 +96,25 @@
         </table>
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa C</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa C</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment C'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2"> CENA : <c:out value="${car.priceOfDay}"/></td>
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
-                <td class="col-2 center">
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
@@ -125,25 +127,26 @@
         </table>
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa D</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa D</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment D'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2"> CENA <c:out value="${car.priceOfDay}"/></td>
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
 
-                <td class="col-2 center">
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
@@ -156,24 +159,25 @@
         </table>
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa E</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa E</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment E'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
                 <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
-                <td class="col-2 center">
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
@@ -186,27 +190,30 @@
         </table>
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>Klasa F</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>Klasa F</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'Segment F'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
-                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
+                <td class="col-2">CENA : <c:out value="${car.priceOfDay}"/></td>
 
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
 
-                <td class="col-2 center">
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
+
                 <td class="col-1 center">
                   <a href="/reservation/addUserClientCar/1/${car.id}" class="btn btn-danger rounded-0 text-light m-1">Wypozycz</a>
                 </td>
@@ -217,25 +224,26 @@
         </table>
         <table class="table">
           <thead>
+          <tr class="d-flex"><th class="col-2"><h2>BUS-Y<br> Samochody Dostawcze</h2></th></tr>
           <tr class="d-flex">
-            <th class="col-2"><h2>BUS-y, Samochody dostawcze</h2></th>
-            <th class="col-7"></th>
-            <th class="col-1"></th>
-            <th class="col-2"></th>
-            <th class="col-2"></th>
+            <th class="col-1">Marka</th>
+            <th class="col-1">Model</th>
+            <th class="col-2">OPIS</th>
+            <th class="col-2">Cena</th>
           </tr>
           </thead>
           <tbody class="text-color-lighter">
           <c:forEach var="car" items="${cars}">
             <c:if test="${car.carClass.name == 'BUS'}">
               <tr class="d-flex">
-                <td class="col-2">${car.carModel.carMark.name}</td>
-                <td class="col-2">${car.carModel.name}</td>
-                <td class="col-2">CENA <c:out value="${car.priceOfDay}"/></td>
+                <td class="col-1">${car.carModel.carMark.name}</td>
+                <td class="col-1">${car.carModel.name}</td>
                 <td class="col-2"> <c:out value="${car.description}"/></td>
-                <td class="col-2"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+                <td class="col-2">CENA <c:out value="${car.priceOfDay}"/></td>
 
-                <td class="col-2 center">
+                <td class="col-1"><img src="/image/${car.imageCar.data}" alt="foto" /></td>
+
+                <td class="col-1 center">
                   <a href="/car/details/${car.id}" class="btn btn-info rounded-0 text-light m-1">Szczegóły</a>
                 </td>
                 <td class="col-1 center">
